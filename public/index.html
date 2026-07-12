@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Event Check-in</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- LINE LIFF SDK. Only used when the page is opened inside LINE. -->
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  </head>
+  <body>
+    <main class="card" id="card">
+      <div class="badge" id="mode">connecting…</div>
+
+      <div id="view-loading" class="view">
+        <div class="spinner" aria-label="Loading"></div>
+      </div>
+
+      <div id="view-checkin" class="view" hidden>
+        <img id="avatar" class="avatar" alt="" />
+        <p class="hello">Hi <strong id="name">there</strong></p>
+        <p class="event-label">Checking in to</p>
+        <h1 class="event" id="event">the event</h1>
+        <button id="btn" class="btn">Check in →</button>
+      </div>
+
+      <div id="view-done" class="view" hidden>
+        <div class="tick">✓</div>
+        <h1 class="done-title" id="done-title">You're checked in</h1>
+        <p class="done-sub" id="done-sub"></p>
+        <p class="count">Attendees checked in: <strong id="count">0</strong></p>
+      </div>
+
+      <div id="view-error" class="view" hidden>
+        <div class="tick err">!</div>
+        <h1 class="done-title">Something went wrong</h1>
+        <p class="done-sub" id="error-msg"></p>
+      </div>
+
+      <footer class="foot">
+        LIFF check-in starter ·
+        <a href="https://github.com/NTCHz" target="_blank" rel="noreferrer">source</a>
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

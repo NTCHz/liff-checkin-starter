@@ -1,0 +1,18 @@
+{
+  "name": "liff-checkin-starter",
+  "version": "1.0.0",
+  "description": "A minimal LINE LIFF event check-in starter — attendees scan an event QR, open the LIFF, and check in with their LINE identity. Works in a plain browser via demo mode.",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "elysia": "^1.1.0",
+    "@elysiajs/static": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
