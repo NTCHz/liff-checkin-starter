@@ -23,17 +23,22 @@ async function getConfig() {
 // Returns a LINE profile in-app, or a mock profile in demo mode.
 async function resolveProfile() {
   const { liffId } = await getConfig();
-  const canUseLiff = !FORCE_DEMO && liffId && window.liff;
 
-  if (canUseLiff) {
+  if (!FORCE_DEMO && liffId && window.liff) {
     try {
       await liff.init({ liffId });
-      if (!liff.isLoggedIn()) {
-        liff.login(); // redirects; page reloads logged in
-        return null;
+      // Only drive the real LINE flow when actually opened inside the LINE app.
+      // In an external browser we fall through to demo mode instead of forcing a
+      // LINE-login redirect, so the page is instantly usable for anyone.
+      // (Want real login in external browsers too? Drop the isInClient() guard.)
+      if (liff.isInClient()) {
+        if (!liff.isLoggedIn()) {
+          liff.login(); // redirects; page reloads logged in
+          return null;
+        }
+        const p = await liff.getProfile();
+        return { userId: p.userId, name: p.displayName, avatar: p.pictureUrl, demo: false };
       }
-      const p = await liff.getProfile();
-      return { userId: p.userId, name: p.displayName, avatar: p.pictureUrl, demo: false };
     } catch (e) {
       console.warn("LIFF init failed, falling back to demo:", e);
     }
