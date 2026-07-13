@@ -7,7 +7,9 @@ const LIFF_ID = process.env.LIFF_ID ?? "";
 
 const app = new Elysia()
   // Serves the LIFF frontend from ./public (index.html at "/").
-  .use(staticPlugin({ assets: "public", prefix: "/" }))
+  // maxAge 0: assets revalidate via ETag so a redeploy is reflected immediately
+  // (a CDN in front — e.g. Cloudflare — won't pin stale JS for 24h).
+  .use(staticPlugin({ assets: "public", prefix: "/", maxAge: 0 }))
   // Expose the configured LIFF ID to the client (public value, safe to send).
   .get("/api/config", () => ({ liffId: LIFF_ID }))
   .post(
