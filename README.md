@@ -5,7 +5,7 @@ opens inside LINE, and they check in with their LINE identity — no forms, no
 accounts. Runs in a plain browser via **demo mode**, so you can try the whole
 flow without a LINE app or a LIFF ID.
 
-> Built as an open-source starter by [Thichanon Ratanasaenwan](https://portfolio.vlls.space).
+> Built as an open-source starter by [Thichanon Ratanasaenwan](https://portfolio.shipfold.com).
 > The pattern behind several shipped LIFF systems (event check-in, staff, loyalty).
 
 ## How it works
