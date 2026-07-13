@@ -30,6 +30,8 @@ const app = new Elysia()
     },
   )
   .get("/api/event/:id", ({ params }) => store.getEvent(params.id))
+  // Clean URL for the organizer view (staticPlugin also serves /admin.html).
+  .get("/admin", () => Bun.file("public/admin.html"))
   .listen(process.env.PORT ?? 3000);
 
 console.log(`▲ liff-checkin-starter on :${app.server?.port}  (LIFF_ID ${LIFF_ID ? "set" : "MISSING — demo mode only"})`);

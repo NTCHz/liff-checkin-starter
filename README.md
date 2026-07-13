@@ -17,6 +17,8 @@ event QR  ──►  LIFF URL (?event=expo-2026)  ──►  LINE login  ──�
 
 - **Frontend** (`public/`) — vanilla JS + the LIFF SDK. Resolves a LINE profile
   in-app, or a stable mock profile in demo mode.
+- **Admin view** (`/admin?event=<id>`) — a live organizer dashboard that polls
+  the attendance for one event (count + who checked in, newest first).
 - **Backend** (`server.ts`) — Bun + Elysia. Validates the payload and records
   check-ins in an in-memory store, deduped per `(event, userId)`.
 - The event QR is simply a QR of the LIFF URL — generate it with any QR tool.
