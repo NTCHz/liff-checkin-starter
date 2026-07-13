@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Check-in — Admin</title>
+    <link rel="stylesheet" href="/style.css?v=2" />
+  </head>
+  <body>
+    <main class="admin">
+      <header class="admin-head">
+        <div>
+          <p class="admin-label">Live attendance</p>
+          <h1 class="admin-event" id="event">event</h1>
+        </div>
+        <div class="admin-count">
+          <span class="admin-num" id="count">0</span>
+          <span class="admin-live"><span class="pulse"></span> live</span>
+        </div>
+      </header>
+
+      <ul class="admin-list" id="list"></ul>
+      <p class="admin-empty" id="empty">No check-ins yet. Share the event QR to get started.</p>
+
+      <footer class="foot">
+        LIFF check-in starter · admin ·
+        <a href="https://github.com/NTCHz" target="_blank" rel="noreferrer">source</a>
+      </footer>
+    </main>
+    <script src="/admin.js?v=2"></script>
+  </body>
+</html>
